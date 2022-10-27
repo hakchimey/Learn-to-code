@@ -1,0 +1,34 @@
+//Students should recall that the createSprite property intializes x and y
+//position of the sprite when you use it. In this example, the randomNumber 
+//block should be is being used inside of the createSprite property.
+
+//Character Sprite
+var character = createSprite(200, 200);
+character.setAnimation("flyer");
+
+//Coin Sprite
+var coin = createSprite(randomNumber(0, 400), randomNumber(0, 400));
+coin.setAnimation("coin");
+
+
+function draw() {
+  background("skyblue");
+  
+  // Simulating Gravity
+  character.velocityY = character.velocityY + 0.1;
+  
+  // update sprites
+  if(keyWentDown("up")){
+    character.velocityY = -5;
+  }
+  
+  if(keyDown("right")){
+   character.velocityX = character.velocityX + 0.1;
+  }
+  
+  if (keyDown("left")) {
+    character.velocityX = character.velocityX - 0.1;
+  }
+  
+  drawSprites();
+}
